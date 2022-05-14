@@ -1,0 +1,26 @@
+<div class="card mat-card" style="border-radius: 30px;">
+    <div class="row">
+        <div>
+            <h1>Educación:</h1>
+            <a href="#" id="beditar"><i class="fa fa-plus"></i></a>
+        </div>
+        <div >
+            <ul>
+                <li *ngFor="let educacion of educacionList" class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
+                        <a [href]="educacion.enlace" target="_blank"><img [src]="educacion.img" id="imgcomp"></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+                        <h1>{{educacion.school}}</h1>
+                        <h3> ({{educacion.duracion}}</h3>
+                        <a href="#" id="beditar"><i class="fa fa-pen"></i></a>
+                        <h3> <time> {{educacion.start}}</time> - <time>{{educacion.end}})</time> </h3>
+                        <h4> {{educacion.lugar}}</h4>
+                        <h5>{{educacion.title}}</h5>
+                        <p>{{educacion.descripcion}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

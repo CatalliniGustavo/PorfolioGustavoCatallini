@@ -1,0 +1,15 @@
+div {
+    background-color: rgb(108, 136, 136);
+    margin: -10px;
+
+}
+#logoAP {
+    width: 20%;
+    padding-left: 5%;
+}
+.redesS {
+    width: 5%;
+    padding: 1%;
+    float: right;
+    margin: 10px;
+}

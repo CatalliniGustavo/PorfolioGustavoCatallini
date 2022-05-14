@@ -1,0 +1,31 @@
+.row{
+    padding: 0px;
+}
+
+#beditar{
+    float: inline-end;
+    float:right;
+}
+
+ul {
+    margin-left: -0%;
+}
+li{
+    display: flex;
+    display: inline;
+    align-items: center;
+}
+#circulo {
+    
+    margin: 1% 3% 0% 0%;
+}
+@media (max-width: 1300px){
+    ul {
+        margin-left: -5%;
+    }
+}
+@media (max-width: 280px) {
+    ul {
+        margin-left: -30%;
+    }
+}

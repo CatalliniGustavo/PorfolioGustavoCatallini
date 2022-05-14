@@ -1,0 +1,23 @@
+.row{
+    padding: 0px;
+}
+h1, h3{
+    display: inline;
+}
+#beditar{
+    float: inline-end;
+    float:right;
+}
+#imgcomp{
+    width: 100%;
+    margin-top: 10%;
+}
+ul{
+    padding: 20px;
+}
+@media (max-width: 991px){
+    #imgcomp{
+        width: 20%;
+        margin-top: 10%;
+    }
+}

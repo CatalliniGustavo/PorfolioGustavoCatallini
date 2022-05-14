@@ -1,0 +1,44 @@
+<div class="card mat-card" style="border-radius: 30px;">
+    <div class="row">
+        <div>
+            <h1>Habilidades:</h1><a href="#" id="beditar"><i class="fa fa-plus"></i></a>
+            <a href="#" id="beditar"><i class="fa fa-pen"></i></a>
+            <h3>Duras:</h3>
+            
+        </div>
+        <div>
+            <ul>
+                 <li *ngFor="let habilidades of habilidadesBList" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <circle-progress id="circulo"
+                                   [percent]="95" 
+                                   [radius]="80" 
+                                   [outerStrokeWidth]="16" 
+                                   [innerStrokeWidth]="8"
+                                   [outerStrokeColor]="'red'" 
+                                   [innerStrokeColor]="'grey'" 
+                                   [animationDuration]="1000">
+                    </circle-progress> 
+                </li>
+            </ul>
+        </div>
+        <div>
+            <a href="#" id="beditar"><i class="fa fa-plus"></i></a><a href="#" id="beditar"><i class="fa fa-pen"></i></a>
+            <h3>Blandas:</h3>
+        </div>
+        <div> 
+            <ul>
+                 <li *ngFor="let habilidades of habilidadesDList" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <circle-progress id="circulo"
+                                   [percent]="95" 
+                                   [radius]="80" 
+                                   [outerStrokeWidth]="16" 
+                                   [innerStrokeWidth]="8"
+                                   [outerStrokeColor]="'red'" 
+                                   [innerStrokeColor]="'grey'" 
+                                   [animationDuration]="1000">
+                    </circle-progress> 
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
