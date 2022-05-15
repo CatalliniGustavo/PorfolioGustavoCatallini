@@ -13,7 +13,8 @@ h1, h3{
 }
 #divP{
     padding: 1%;
-    margin-top: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 p{
     text-align: justify;

@@ -15,7 +15,10 @@
                                     footer
   =========================================================================================
   */
-  
+  #divS{
+    display: flex;
+    justify-content: center;
+  }
   .footer-wrap {
     padding-top: 43px;
     background-size: cover;
