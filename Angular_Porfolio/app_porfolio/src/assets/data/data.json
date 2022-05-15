@@ -3,16 +3,6 @@
     "backImage": "assets/img/Banner.jpg",
     "image": "assets/img/Perfil.jpg",
     "position": "Estudiante Desarrollador Full Stack",
-    "company": {
-        "name": "Argentina Programa",
-        "img": "",
-        "url": "#"
-    },
-    "school": {
-        "name": "Argentina Programa",
-        "img": "",
-        "url": "#"
-    },
     "ubication": "Mendoza (Argentina)",
     "about": "Estudiante de Desarrollo Web en dos oportunidades",
     "experiencia": [
@@ -164,12 +154,21 @@
             "img":"data:image/png;base64,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"
         }
     ],
-    "achivements": [
+    "proyectos": [
         {
-            "name": "Huaro App"
+            "name": "Librería Web",
+            "descripcion":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum ipsa aut qui adipisci. Similique voluptate hic consectetur animi soluta qui, adipisci obcaecati debitis quam, mollitia earum pariatur impedit ex aperiam.",
+            "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkXU_CFNrjikAXPH2I25DnwecJGbD-EpDBUg&usqp=CAU"
         },
         {
-            "name": "Lanterns 19/09"
+            "name": "Organizador de Tareas",
+            "descripcion":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum ipsa aut qui adipisci. Similique voluptate hic consectetur animi soluta qui, adipisci obcaecati debitis quam, mollitia earum pariatur impedit ex aperiam.",
+            "img":"https://www.hibox.co/wp-content/uploads/2016/06/hibox-slide-02.png"
+        },
+        {
+            "name": "Porfolio",
+            "descripcion":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum ipsa aut qui adipisci. Similique voluptate hic consectetur animi soluta qui, adipisci obcaecati debitis quam, mollitia earum pariatur impedit ex aperiam.",
+            "img":"assets/img/porfolioweb.jpg"
         }
     ]
 }

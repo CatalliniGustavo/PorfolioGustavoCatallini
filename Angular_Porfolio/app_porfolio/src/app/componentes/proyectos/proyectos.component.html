@@ -1,0 +1,25 @@
+<div class="card mat-card" style="border-radius: 30px;">
+    <div class="contenedor">
+        <div>
+            <h1>Proyectos:</h1>
+            <a href="#" id="beditar"><i class="fa fa-plus"></i></a>
+        </div>
+        <div id="divP">
+            <ul>
+                <li *ngFor="let proyecto of proyectosList" class="row">
+                    <div>
+                        <a href="#" id="beditar"><i class="fa fa-solid fa-trash"></i></a>
+                        <a href="#" id="beditar"><i class="fa fa-pen"></i></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                        <h3>{{proyecto.name}}</h3>
+                        <p>{{proyecto.descripcion}}</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <a href="#"><img [src]="proyecto.img" alt="" id="imgP"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

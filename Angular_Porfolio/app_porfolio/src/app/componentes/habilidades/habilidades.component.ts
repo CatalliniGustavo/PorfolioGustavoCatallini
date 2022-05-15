@@ -8,7 +8,7 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class HabilidadesComponent implements OnInit {
   habilidadesBList: any;
-  habilidadesDList:any;
+  habilidadesDList: any;
   constructor(private datosPorfolio: PorfolioService) { }
 
   ngOnInit(): void {
