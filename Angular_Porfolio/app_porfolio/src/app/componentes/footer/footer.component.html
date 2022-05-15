@@ -1,65 +1,36 @@
-<!--footer start-->
 <footer>
-    <div class="footer-wrap">
-        <div class="container first_class">
-            <div class="row">
-                <div id="divS">
-                    <div class="standard_social_links">
-                        <div>
-                            <li class="round-btn btn-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a>
-
-                            </li>
-                            <li class="round-btn btn-linkedin"><a href="#"><i class="fab fa-linkedin-in"
-                                        aria-hidden="true"></i></a>
-
-                            </li>
-                            <li class="round-btn btn-linkedin"><a href="#"><i class="fa fa-pen"
-                                        aria-hidden="true"></i></a>
-
-                            </li>
-                            <li class="round-btn btn-whatsapp"><a href="#"><i class="fab fa-whatsapp"
-                                        aria-hidden="true"></i></a>
-
-                            </li>
-                            <li class="round-btn btn-envelop"><a href="#"><i class="fa fa-envelope"
-                                        aria-hidden="true"></i></a>
-
-                            </li>
-                        </div>
-                    </div>
-
+    <div class="container-footer-all">
+        <div class="container-body row">
+            <div class="colum1 col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <h1>Informacion de la pagina</h1>
+                <p>Este es un proyecto final para el curso Argentina Programa en la etapa #YoProgramo del INTI. En el
+                    cual se nos dieron especificaciones como debe presentarse y que tecnologías debemos usar.</p>
+            </div>
+            <div class="colum2 col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <h1>Redes Sociales</h1>
+                <div class="row">
+                    <ul>
+                        <li *ngFor="let redes of redesList" >
+                            <a [href]="redes.enlace" target="_blank"><img [src]="redes.img"></a>
+                            <label>{{redes.name}}</label>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="second_class">
-            <div class="container second_class_bdr">
-                <div class="row">
-                    <div>
-                        <p style="text-align:center ;">Your one-stop career platform to find Jobs, Internships,
-                            Professional Trainings, Projects,
-                            and Volunteering Opportunities.</p>
-                    </div>
+            <div class="colum3 col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <h1>Información Contatos</h1>
+                <div class="row2">
+                    <ul>
+                        <li *ngFor="let contacto of contactoList">
+                            <a [href]="contacto.link" target="_blank"><img [src]="contacto.img"></a>
+                            <label>{{contacto.enlace}}</label>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="container-fluid">
-            <div class="copyright"> Copyright 2022 | All Rights Reserved by Gustavo Catallini</div>
-        </div>
+    <div class="container-footer">
+        <label>© 2022 | Gustavo Catallini | Mendoza, Argentina</label>
     </div>
 </footer>
-
-<!--footer end-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-<!-- Font Awesome 5 links-->
-<script src="https://kit.fontawesome.com/fddf5c0916.js" crossorigin="anonymous"></script>

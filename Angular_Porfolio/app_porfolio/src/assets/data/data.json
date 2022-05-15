@@ -170,5 +170,45 @@
             "descripcion":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum ipsa aut qui adipisci. Similique voluptate hic consectetur animi soluta qui, adipisci obcaecati debitis quam, mollitia earum pariatur impedit ex aperiam.",
             "img":"assets/img/porfolioweb.jpg"
         }
+    ],
+    "redes":[
+        {
+            "name":"WhatsApp",
+            "enlace":"+54 9 2615 782453",
+            "img":"assets/img/WhatsApp.jpg"
+        },
+        {
+            "name":"Facebook",
+            "enlace":"https://www.facebook.com/gustavo.catallini/",
+            "img":"assets/img/Facebook.jpg"
+        },{
+            "name":"GitHub",
+            "enlace":"https://github.com/CatalliniGustavostavo",
+            "img":"assets/img/GitHub.jpg"
+        },{
+            "name":"Linkedin",
+            "enlace":"https://www.linkedin.com/in/gustavo-catallini-2693511b5/",
+            "img":"assets/img/LinkedIn.jpg"
+        }
+    ],
+    "contacto":[
+        {
+            "name":"Dirección",
+            "enlace":"Guaymallén, Mendoza, Argentina",
+            "img":"assets/img/GPS.jpg",
+            "link": "https://goo.gl/maps/5cnWUj5NAtWp4vmaA"
+        },
+        {
+            "name":"Celular",
+            "enlace":"+542615782453",
+            "img":"assets/img/Cel.jpg",
+            "link": "#"
+        },
+        {
+            "name":"Correo",
+            "enlace":"catallinigustavo@gmail.com",
+            "img":"assets/img/Gmail.jpg",
+            "link": "catallinigustavo@gmail.com"
+        }
     ]
 }

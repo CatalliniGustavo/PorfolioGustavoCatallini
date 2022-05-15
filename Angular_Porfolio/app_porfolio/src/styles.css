@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 body {
     background-color: rgb(105, 105, 105);
 }
@@ -9,6 +10,10 @@ body {
     border-color: #000000;
     box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
   
+}
+h1, h2, h3, h4, h5, h6, p{
+    font-family: "Titillium Web", sans-serif;
+    font-weight: bold;
 }
 .card {
     border-radius: 30px;
