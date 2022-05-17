@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-light bg-light">
+<!-- <nav class="navbar fixed-top navbar-light bg-light">
     <div>
         <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
             target="_blank" class="navbar-brand"><img src="../../../assets/img/APLogo.png" alt="Argentina Programa" id="logoAP"></a>
@@ -7,5 +7,42 @@
         <a href="" target="_blank" class="navbar-brand"><img src="../../../assets/img/linkedin.png" alt="" class="redesS"></a>
         <a href="" target="_blank" class="navbar-brand"><img src="../../../assets/img/gmail.png" alt="" class="redesS"></a>
         <a href="" target="_blank" class="navbar-brand"><img src="../../../assets/img/whatsapp.png" alt="" class="redesS"></a>
+    </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank"><img src="../../../assets/img/ArgentinaPrograma.jpg" id="aplogo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                </li>
+            </ul>
+            <form class="d-flex">
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Redes
+                        </a>
+                        <ul class="dropdown-menu" id="list" aria-labelledby="navbarDropdown">
+                            <li *ngFor="let redes of redesList" >
+                                <a class="dropdown-item" [href]="redes.enlace" target="_blank"><img [src]="redes.img"
+                                        id="imgR">{{redes.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <button class="btn btn-danger" type="submit">Login</button>
+                </ul>
+                
+            </form>
+        </div>
     </div>
 </nav>
