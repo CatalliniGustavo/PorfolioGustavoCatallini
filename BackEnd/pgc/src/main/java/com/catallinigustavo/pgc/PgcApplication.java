@@ -8,6 +8,8 @@ public class PgcApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PgcApplication.class, args);
+		          System.out.println("welcome");
+                          
 	}
 
 }
