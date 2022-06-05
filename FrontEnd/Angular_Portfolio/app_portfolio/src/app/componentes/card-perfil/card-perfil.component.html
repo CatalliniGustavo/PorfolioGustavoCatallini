@@ -1,12 +1,12 @@
 <div class="card mat-card" id="first-card">
-    <div id="profile-background"><img [src]="miPorfolio.backImage" alt="Banner">
+    <div id="profile-background"><img src="../../../assets/img/Banner.jpg" alt="Banner">
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div><img [src]="miPorfolio.image" alt="Imagen Perfil" class="img-fluid" id="iperfil">
+            <div><img src="../../../assets/img/Perfil.jpg" alt="Imagen Perfil" class="img-fluid" id="iperfil">
             </div>
             <div>
-                <p id="nombrePerfil">Gustavo Catallini</p>
+                <p id="nombrePerfil">{{usuario.nombre}} {{usuario.apellido}}</p>
                 <p id="ptitulo">Full Stack Developer Jr</p>
             </div>
         </div>

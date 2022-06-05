@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { usuario } from 'src/app/model/usuario.model';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
 
 @Component({
   selector: 'app-card-perfil',
@@ -7,14 +9,17 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
   styleUrls: ['./card-perfil.component.css']
 })
 export class CardPerfilComponent implements OnInit {
-  miPorfolio:any;
-  constructor(private datosPorfolio:PorfolioService) { }
+  usuario: usuario = new usuario("","","");
+  // miPorfolio:any;
+  constructor(public usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      console.log(data);
-      this.miPorfolio=data
-    });
+    
+    this.usuarioService.getUsuario().subscribe(data => {this.usuario = data})
+    // this.datosPorfolio.obtenerDatos().subscribe(data => {
+    //   console.log(data);
+    //   this.miPorfolio=data
+    // });
   }
 
 }
