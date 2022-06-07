@@ -43,11 +43,13 @@ public class UsuarioController {
             @PathVariable Long id,
             @RequestParam("nombre") String nuevoNombre,
             @RequestParam("apellido") String nuevoApellido,
-            @RequestParam("img") String nuevoImg) {
+            @RequestParam("img") String nuevoImg,
+            @RequestParam("acerca") String nuevoAcerca){
         Usuario usuario = iusuarioService.findUsuario(id);
         usuario.setNombre(nuevoNombre);
         usuario.setApellido(nuevoApellido);
         usuario.setImg(nuevoImg);
+        usuario.setAcerca(nuevoAcerca);
 
         iusuarioService.saveUsuario(usuario);
         return usuario;

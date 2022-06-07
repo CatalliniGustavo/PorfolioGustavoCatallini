@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
   styleUrls: ['./card-perfil.component.css']
 })
 export class CardPerfilComponent implements OnInit {
-  usuario: usuario = new usuario("","","");
+  usuario: usuario = new usuario("","","","");
   // miPorfolio:any;
   constructor(public usuarioService: UsuarioService) { }
 
