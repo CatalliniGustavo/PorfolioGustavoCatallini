@@ -9,17 +9,14 @@ import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
   styleUrls: ['./card-perfil.component.css']
 })
 export class CardPerfilComponent implements OnInit {
-  usuario: usuario = new usuario("","","","");
-  // miPorfolio:any;
+  usuario: usuario = new usuario("","","","","");
+ 
   constructor(public usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     
     this.usuarioService.getUsuario().subscribe(data => {this.usuario = data})
-    // this.datosPorfolio.obtenerDatos().subscribe(data => {
-    //   console.log(data);
-    //   this.miPorfolio=data
-    // });
+   
   }
 
 }

@@ -24,6 +24,7 @@ public class Usuario {
     @Size(min = 1, max = 50, message = "no cumple con la longitd")
     private String img;
     private String acerca;
+    private String rol;
     
     
 }

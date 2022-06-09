@@ -44,19 +44,20 @@ public class UsuarioController {
             @RequestParam("nombre") String nuevoNombre,
             @RequestParam("apellido") String nuevoApellido,
             @RequestParam("img") String nuevoImg,
-            @RequestParam("acerca") String nuevoAcerca){
+            @RequestParam("acerca") String nuevoAcerca,
+            @RequestParam("rol") String nuevoRol) {
         Usuario usuario = iusuarioService.findUsuario(id);
         usuario.setNombre(nuevoNombre);
         usuario.setApellido(nuevoApellido);
         usuario.setImg(nuevoImg);
         usuario.setAcerca(nuevoAcerca);
-
+        usuario.setRol(nuevoRol);
         iusuarioService.saveUsuario(usuario);
         return usuario;
     }
 
     @GetMapping("/usuario/traer/perfil")
     public Usuario findUsuario() {
-        return iusuarioService.findUsuario((long)1);
+        return iusuarioService.findUsuario((long) 1);
     }
 }

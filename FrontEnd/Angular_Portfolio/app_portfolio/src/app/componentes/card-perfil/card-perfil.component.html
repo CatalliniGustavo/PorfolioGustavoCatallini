@@ -15,7 +15,7 @@
             <p>{{usuario.acerca}}</p>
         </div>
         <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1" >
-            <a href="#" id="beditar"><i class="fa fa-pen"></i></a>
+            <a href="#" id="beditar" *ngIf="usuario.rol === 'admin'"><i class="fa fa-pen"></i></a>
         </div>
     </div>
 </div>

@@ -2,10 +2,12 @@
     <app-header></app-header>
     <div class="targeta">
         <app-card-perfil></app-card-perfil>
-        <app-experiencia></app-experiencia>
-        <app-educacion></app-educacion>
-        <app-habilidades></app-habilidades>
-        <app-proyectos></app-proyectos>
+        <div *ngIf="usuario.rol === 'admin'">
+            <app-experiencia></app-experiencia>
+            <app-educacion></app-educacion>
+            <app-habilidades></app-habilidades>
+            <app-proyectos></app-proyectos>
+        </div>
     </div>
     <app-footer></app-footer>
 </div>
