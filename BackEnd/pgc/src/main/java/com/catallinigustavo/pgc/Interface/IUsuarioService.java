@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUsuarioService {
     // Traer un Usuario
-    public List<Usuario> getUsuario();
+    public Usuario getUsuario(String nombre);
     // Guardar un Usuario
     public void saveUsuario(Usuario usuario);
     // Eliminar un Usuario por ID

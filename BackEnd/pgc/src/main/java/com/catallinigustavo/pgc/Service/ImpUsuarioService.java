@@ -4,6 +4,7 @@ import com.catallinigustavo.pgc.Entity.Usuario;
 import com.catallinigustavo.pgc.Interface.IUsuarioService;
 import com.catallinigustavo.pgc.Repository.IUsuarioRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,9 @@ public class ImpUsuarioService implements IUsuarioService{
     @Autowired IUsuarioRepository iusuarioRepository;
 
     @Override
-    public List<Usuario> getUsuario() {
-        List<Usuario> usuario = iusuarioRepository.findAll();
-        return usuario;
+    public Usuario getUsuario(String nombre) {
+        Usuario login = iusuarioRepository.findByNombre(nombre);
+        return login;
     }
 
     @Override

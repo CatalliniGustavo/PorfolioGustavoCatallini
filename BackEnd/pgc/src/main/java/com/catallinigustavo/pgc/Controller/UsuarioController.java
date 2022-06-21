@@ -22,8 +22,9 @@ public class UsuarioController {
     IUsuarioService iusuarioService;
 
     @GetMapping("usuario/traer")
-    public List<Usuario> getUsuario() {
-        return iusuarioService.getUsuario();
+    public Usuario getUsuario(@RequestParam("nombre") String nombre) {
+        Usuario usuario = iusuarioService.getUsuario(nombre);
+        return usuario;
     }
 
     @PostMapping("/usuario/crear")
