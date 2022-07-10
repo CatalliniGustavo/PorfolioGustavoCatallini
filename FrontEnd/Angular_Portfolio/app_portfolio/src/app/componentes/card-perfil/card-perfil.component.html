@@ -6,16 +6,16 @@
             <div><img src="../../../assets/img/Perfil.jpg" alt="Imagen Perfil" class="img-fluid" id="iperfil">
             </div>
             <div>
-                <p id="nombrePerfil">{{usuario.nombre}} {{usuario.apellido}}</p>
+                <p id="nombrePerfil">{{user.nombre}} {{user.apellido}}</p>
                 <p id="ptitulo">Full Stack Developer Jr</p>
             </div>
         </div>
         <div  class="col-xs-12 col-sm-7 col-md-7 col-lg-7" id="pacercade">
             <h1>Acerca de mí:</h1>
-            <p>{{usuario.acerca}}</p>
+            <p>{{user.acerca}}</p>
         </div>
         <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1" >
-            <a href="#" id="beditar" *ngIf="usuario.rol === 'admin'"><i class="fa fa-pen"></i></a>
+            <a href="#" id="beditar" ><i class="fa fa-pen"></i></a>
         </div>
     </div>
 </div>

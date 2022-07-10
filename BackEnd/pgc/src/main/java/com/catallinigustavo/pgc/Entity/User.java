@@ -11,20 +11,22 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Usuario {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitd")
+    @Size(min = 1, max = 50, message = "el nombre no cumple con la longitd")
     private String nombre;
-    @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitd")
+    @Size(min = 1, max = 9, message = "el apellido no cumple con la longitd")
     private String apellido;
-    @Size(min = 1, max = 50, message = "no cumple con la longitd")
+    @NotNull
+    @Size(min = 1, max = 50, message = "el email no cumple con la longitd")
+    private String email;
     private String img;
+    @Size(min = 1, max = 500, message = "el pass no cumple con la longitd")
     private String acerca;
-    private String rol;
+    
     
     
 }

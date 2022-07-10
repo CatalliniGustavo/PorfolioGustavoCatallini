@@ -39,7 +39,9 @@
                             </li>
                         </ul>
                     </li>
-                    <button class="btn btn-danger" type="submit" (click)="login()">Login</button>
+                    <button class="btn btn-danger" type="submit" (click)="login()" *ngIf="!isLogged">Login</button>
+                    <button class="btn btn-danger" type="submit" (click)="register()" *ngIf="!isLogged">Registrarse</button>
+                    <button class="btn btn-danger" type="submit" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesión</button>
                 </ul>
                 
             </form>

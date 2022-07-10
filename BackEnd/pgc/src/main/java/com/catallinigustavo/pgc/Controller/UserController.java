@@ -1,8 +1,6 @@
 package com.catallinigustavo.pgc.Controller;
 
-import com.catallinigustavo.pgc.Entity.Usuario;
-import com.catallinigustavo.pgc.Interface.IUsuarioService;
-import java.util.List;
+import com.catallinigustavo.pgc.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,52 +11,55 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.catallinigustavo.pgc.Interface.IUserService;
+import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-public class UsuarioController {
+@CrossOrigin(origins = "http://localhost:4200/")
+public class UserController {
 
     @Autowired
-    IUsuarioService iusuarioService;
-
-    @GetMapping("usuario/traer")
-    public Usuario getUsuario(@RequestParam("nombre") String nombre) {
-        Usuario usuario = iusuarioService.getUsuario(nombre);
-        return usuario;
+    IUserService iusuarioService;
+    
+    @GetMapping("user/traer")
+    public List<User> getUser(){
+        return iusuarioService.getUser();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/usuario/crear")
-    public String createUsuario(@RequestBody Usuario usuario) {
-        iusuarioService.saveUsuario(usuario);
-        return "El usuario se creo correctamente";
+    public String createUsuario(@RequestBody User usuario) {
+        iusuarioService.saveUser(usuario);
+        return "El usuario fué creado correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/usuario/borrar/{id}")
     public String deletUsario(@PathVariable Long id) {
-        iusuarioService.deletUsuario(id);
+        iusuarioService.deletUser(id);
         return "El usario fué eliminado correctamente";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/usuario/editar/{id}")
-    public Usuario editUsario(
+    public User editUsario(
             @PathVariable Long id,
             @RequestParam("nombre") String nuevoNombre,
-            @RequestParam("apellido") String nuevoApellido,
+            @RequestParam("email") String nuevoEmail,
             @RequestParam("img") String nuevoImg,
-            @RequestParam("acerca") String nuevoAcerca,
-            @RequestParam("rol") String nuevoRol) {
-        Usuario usuario = iusuarioService.findUsuario(id);
+            @RequestParam("acerca") String nuevoAcerca) {
+        User usuario = iusuarioService.findUser(id);
         usuario.setNombre(nuevoNombre);
-        usuario.setApellido(nuevoApellido);
+        usuario.setEmail(nuevoEmail);
         usuario.setImg(nuevoImg);
         usuario.setAcerca(nuevoAcerca);
-        usuario.setRol(nuevoRol);
-        iusuarioService.saveUsuario(usuario);
+        iusuarioService.saveUser(usuario);
         return usuario;
     }
 
-    @GetMapping("/usuario/traer/perfil")
-    public Usuario findUsuario() {
-        return iusuarioService.findUsuario((long) 1);
+    @GetMapping("user/traer/perfil")
+    public User findUser() {
+        return iusuarioService.findUser((long) 1);
     }
 }

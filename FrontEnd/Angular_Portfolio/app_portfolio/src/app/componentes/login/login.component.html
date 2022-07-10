@@ -1,10 +1,32 @@
-<form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+<form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+  <h1 class="h3 mb-3 fw-normal">Porfavor Ingrese a la pagina</h1>
+  <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required>
+  <input type="password" id="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password" required>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Ingrezar</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
   <div>
     <label for="email">Email: </label>
     <input type="email" formControlName="email">
-  </div>
-  <!-- Gracias al getter que configuramos en el controlador -->
-  <div *ngIf="Mail?.errors  && Mail?.touched">
+  </div> -->
+<!-- Gracias al getter que configuramos en el controlador -->
+<!-- <div *ngIf="Mail?.errors  && Mail?.touched">
     <p *ngIf="Mail?.hasError('required')" class="error">
       El email es requerido.
     </p>
@@ -17,9 +39,9 @@
   <div>
     <label for="exampleInputPassword1" class="form-label">Password: </label>
     <input type="password" formControlName="password" [class.border-danger]="MailValid">
-  </div>
-  <!-- Gracias al getter que configuramos en el controlador -->
-  <div *ngIf="Password?.errors  && Password?.touched">
+  </div> -->
+<!-- Gracias al getter que configuramos en el controlador -->
+<!-- <div *ngIf="Password?.errors  && Password?.touched">
     <p *ngIf="Password?.hasError('required')" class="error">
       El password es requerido.
     </p>
@@ -31,7 +53,7 @@
   <div>
     <button type="submit" (click)="login(form.value.email)">Iniciar Sesión</button>
   </div>
-</form>
+</form> -->
 
 <!-- <div>
   <p>Un debuger para mostrar que es posible hacer un biding directo al formulario <strong>{{form.value.email}}

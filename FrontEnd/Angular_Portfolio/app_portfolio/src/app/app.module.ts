@@ -21,6 +21,8 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { interceptorProvider } from './servicios/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { LoginComponent } from './componentes/login/login.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
     
   ],
   imports: [
@@ -47,9 +50,13 @@ import { LoginComponent } from './componentes/login/login.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgCircleProgressModule.forRoot({})
   ],
-  providers: [PorfolioService],
+  providers: [
+    PorfolioService, 
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { usuario } from 'src/app/model/usuario.model';
+import { user } from 'src/app/model/user.model';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
-import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
+import { UserService } from 'src/app/servicios/user/user.service';
 
 @Component({
   selector: 'app-card-perfil',
@@ -9,13 +9,13 @@ import { UsuarioService } from 'src/app/servicios/usuario/usuario.service';
   styleUrls: ['./card-perfil.component.css']
 })
 export class CardPerfilComponent implements OnInit {
-  usuario: usuario = new usuario("","","","","");
+  user: user = new user("","","","","");
  
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
     
-    this.usuarioService.getUsuario().subscribe(data => {this.usuario = data})
+    this.userService.getUser().subscribe(data => {this.user = data})
    
   }
 
