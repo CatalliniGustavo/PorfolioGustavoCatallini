@@ -64,8 +64,19 @@ public class AuthController {
             roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
         usuario.setRoles(roles);
         usuarioService.save(usuario);
+        //copio esta parte del login para que ingrese con el toquen
+         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+        nuevoUsuario.getEmail(), nuevoUsuario.getPassword()));
         
-        return new ResponseEntity(new Mensaje("Usuario Guardado"), HttpStatus.CREATED);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        
+        String jwt = jwtProvider.generateToken(authentication);
+        
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        
+        JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
+        //retorna jwtDto para entrar logueado y quito new Mensaje("Usuario Guardado") para que entre jwtDto
+        return new ResponseEntity(jwtDto, HttpStatus.CREATED);
         
     }
     

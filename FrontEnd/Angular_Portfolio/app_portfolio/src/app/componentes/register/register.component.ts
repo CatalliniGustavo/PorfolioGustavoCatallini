@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NuevoUsuario } from 'src/app/model/nuevo-usuario';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-register',
@@ -10,26 +11,45 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup;
+  isLogged = false;
+  isLogginFail = false;
+  nuevoUsuario!: NuevoUsuario;
+  nombre!: string;
+  apellido!: string;
+  email!: string;
+  password!: string;
+  roles: string[] = [];
+  errMsj!: string;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,
-    private http: HttpClient) {
-    this.form = this.formBuilder.group({
-      nombre: '',
-      email: '',
-      password: ''
-    });
-  }
+  constructor(
+    private tokenService: TokenService,
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
-
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLogginFail = false;
+      this.roles = this.tokenService.getAthorities();
+    }
   }
 
-  home() {
-    this.router.navigate([''])
-  }
+  onRegist(): void {
+    this.nuevoUsuario = new NuevoUsuario(this.nombre, this.email, this.apellido, this.password);
+    this.authService.nuevo(this.nuevoUsuario).subscribe(data => {
+      this.isLogged = true;
+      this.isLogginFail = false;
+      this.tokenService.setToken(data.token);
+      this.tokenService.setUserName(data.email);
+      this.tokenService.setAthorities(data.authorities);
+      this.roles = data.authorities;
+      this.router.navigate([''])
+    }, err => {
+      this.isLogged = false;
+      this.isLogginFail = true;
+      this.errMsj = err.error.mensaje;
+      console.log(this.errMsj);
 
-  submit() {
-    this.http.post('http://localhost:8080/usuario/crear', this.form.getRawValue()).subscribe(res => this.router.navigate(['/login']));
+    })
   }
 }
