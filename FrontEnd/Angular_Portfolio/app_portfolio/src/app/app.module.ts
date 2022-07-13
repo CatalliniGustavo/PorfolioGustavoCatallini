@@ -8,7 +8,6 @@ import { EncabezadoComponent } from './componentes/encabezado/encabezado.compone
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { AptitudesComponent } from './componentes/aptitudes/aptitudes.component';
 import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educacion/experiencia-y-educacion.component';
-import { LogrosComponent } from './componentes/logros/logros.component';
 import { PorfolioService } from './servicios/porfolio.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './componentes/header/header.component';
@@ -31,7 +30,6 @@ import { interceptorProvider } from './servicios/interceptor-service';
     AcercaDeComponent,
     AptitudesComponent,
     ExperienciaYEducacionComponent,
-    LogrosComponent,
     HeaderComponent,
     CardPerfilComponent,
     ExperienciaComponent,

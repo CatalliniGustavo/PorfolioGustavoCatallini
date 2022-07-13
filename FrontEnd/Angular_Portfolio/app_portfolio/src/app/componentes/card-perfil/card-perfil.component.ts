@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { user } from 'src/app/model/user.model';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { TokenService } from 'src/app/servicios/token.service';
 import { UserService } from 'src/app/servicios/user/user.service';
 
 @Component({
@@ -9,14 +9,21 @@ import { UserService } from 'src/app/servicios/user/user.service';
   styleUrls: ['./card-perfil.component.css']
 })
 export class CardPerfilComponent implements OnInit {
-  user: user = new user("","","","","");
- 
-  constructor(public userService: UserService) { }
+
+  user: user = new user("", "", "", "", "");
+  admin: boolean = false;
+  isLogin: boolean = false;
+  constructor(public userService: UserService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    
-    this.userService.getUser().subscribe(data => {this.user = data})
-   
+    if (this.tokenService.getAthorities().includes("ROLE_ADMIN")) {
+      this.admin = true;
+    }
+    if (this.tokenService.getToken()) {
+      this.isLogin = true;
+    }
+    this.userService.getUser().subscribe(data => { this.user = data })
+
   }
 
 }
