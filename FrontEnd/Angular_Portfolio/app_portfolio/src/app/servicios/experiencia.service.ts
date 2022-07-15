@@ -1,0 +1,25 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Experiencia } from '../model/experiencia';
+import { PorfolioService } from './porfolio.service';
+import { TokenService } from './token.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ExperienciaService {
+
+  URL = 'http://localhost:8080/experiencia/';
+
+  constructor(private http: HttpClient,private tokenService: TokenService, private datosPorfolio: PorfolioService) { }
+
+  public getExperiencia(): Observable<Experiencia[]> {
+    if(this.tokenService.getAthorities().length != 0){
+      return  this.http.get<Experiencia[]>(this.URL + 'traer');
+    }else{
+      return this.datosPorfolio.obtenerDatos();
+    }
+    
+  }
+}

@@ -1,6 +1,8 @@
 package com.catallinigustavo.pgc.Controller;
 
+import com.catallinigustavo.pgc.Entity.Experiencia;
 import com.catallinigustavo.pgc.Entity.User;
+import com.catallinigustavo.pgc.Interface.IExperienciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +23,8 @@ public class UserController {
 
     @Autowired
     IUserService iusuarioService;
+    @Autowired
+    IExperienciaService iExperienciaService;
     
     @GetMapping("user/traer")
     public List<User> getUser(){
@@ -33,12 +37,26 @@ public class UserController {
         iusuarioService.saveUser(usuario);
         return "El usuario fué creado correctamente";
     }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/usuario/experiencia/crear")
+    public String crearExperiencia(@RequestBody Experiencia experiencia){
+        iExperienciaService.saveExperiencia(experiencia);
+        return "La experiencia fue guardada";
+    }
 
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/usuario/borrar/{id}")
     public String deletUsario(@PathVariable Long id) {
         iusuarioService.deletUser(id);
         return "El usario fué eliminado correctamente";
+    }
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/usuario/experiencia/borrar/{id}")
+    public String deletExperincia(@PathVariable Long id) {
+        iExperienciaService.deletExperiencia(id);
+        return "La Experiencia fué eliminada correctamente";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
