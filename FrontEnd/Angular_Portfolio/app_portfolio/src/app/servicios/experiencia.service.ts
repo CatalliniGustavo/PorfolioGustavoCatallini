@@ -20,6 +20,21 @@ export class ExperienciaService {
     }else{
       return this.datosPorfolio.obtenerDatos();
     }
-    
+  }
+
+  public detail(id: number): Observable<Experiencia>{
+    return this.http.get<Experiencia>(this.URL + `detail/${id}`);
+  }
+
+  public save(experiencia: Experiencia): Observable<any>{
+    return this.http.post<any>(this.URL + 'crear', experiencia);
+  }
+
+  public update(id: number, experiencia: Experiencia): Observable<any>{
+    return this.http.put<any>(this.URL + `update/${id}`, experiencia);
+  }
+
+  public delete(id: number): Observable<any>{
+    return this.http.delete<any>(this.URL + `delete/${id}`);
   }
 }

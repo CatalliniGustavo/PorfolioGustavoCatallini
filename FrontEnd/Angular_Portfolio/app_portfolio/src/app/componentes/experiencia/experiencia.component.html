@@ -2,20 +2,23 @@
     <div class="row">
         <div>
             <h1>Experencia:</h1>
-            <a href="#" *ngIf="admin" id="beditar"><i class="fa fa-plus"></i></a>
+            <a routerLink="/newExp" *ngIf="admin" id="beditar"><i class="fa fa-plus"></i></a>
         </div>
-        <div >
+        <div>
             <ul>
                 <li *ngFor="let experiencia of experiencias" class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
-                        <img [src]="experiencia.imgIcono" id="imgcomp">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1" id="logo">
+                        <a [href]="experiencia.linkIcono" target="_blank"><img [src]="experiencia.imgIcono"
+                                id="imgcomp"></a>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
                         <h1>{{experiencia.nombre}}</h1>
-                        <h3> (Duración: </h3>
-                        <a href="#" *ngIf="admin" id="beditar"><i class="fa fa-pen"></i></a>
-                        <a href="#" *ngIf="admin" id="beditar"><i class="fa fa-solid fa-trash"></i></a>
-                        <h3> <time> {{experiencia.fechainicio}}</time> - <time>{{experiencia.fechafin}})</time> </h3>
+                        <h3> (Inicio: </h3>
+                        <a routerLink="/editExp/{{experiencia.id}}" *ngIf="admin" id="beditar"><i
+                                class="fa fa-pen"></i></a>
+                        <a href="#" *ngIf="admin" id="beditar" (click)="delete(experiencia.id)"><i
+                                class="fa fa-solid fa-trash"></i></a>
+                        <h3> <time> {{experiencia.fechainicio}}</time>) - (Hasta: <time>{{experiencia.fechafin}})</time> </h3>
                         <h4> {{experiencia.lugar}}</h4>
                         <h5>{{experiencia.titulo}}</h5>
                         <p>{{experiencia.descripcion}}</p>

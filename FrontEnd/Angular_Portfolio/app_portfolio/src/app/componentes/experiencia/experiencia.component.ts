@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationError, NavigationExtras, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
@@ -13,20 +14,48 @@ export class ExperienciaComponent implements OnInit {
 
   admin: boolean = false;
   isLogin: boolean = false;
-  experienciaList: any;
   experiencias: Array<Experiencia> = [];
-  constructor(public experienciaService: ExperienciaService,private datosPorfolio: PorfolioService, private tokenService: TokenService) { }
+  constructor(public experienciaService: ExperienciaService, private tokenService: TokenService, private router: Router) { }
 
   ngOnInit(): void {
+    this.cargarExperiencia();
     if (this.tokenService.getAthorities().includes("ROLE_ADMIN")) {
       this.admin = true;
     }
     if (this.tokenService.getToken()) {
       this.isLogin = true;
     }
-    this.experienciaService.getExperiencia().subscribe(data => {this.experiencias = data})
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.experienciaList = data.experiencia;
-    });
+    
   }
+
+  cargarExperiencia(): void{
+    this.experienciaService.getExperiencia().subscribe(data => { this.experiencias = data })
+  }
+  delete(id?: number){
+    if (id != undefined) {
+      this.experienciaService.delete(id).subscribe(
+        data => {
+          this.cargarExperiencia();
+        }, err => {
+          alert("No se pudo borrar la experiencia");
+        }
+      )
+    }
+  }
+  // expModificar(exp: Experiencia) {
+  //   let dato: NavigationExtras = {state: {example: exp}};
+  //   this.router.navigate(['/expModif'], dato);
+  // }
+
+//   En el component que envia
+
+//  capturaMovimientos(rowSelect) {
+//  const dato: NavigationExtras = {state: {example: rowSelect}};
+//       this.router.navigate(['/movimientos-sua'], dato);
+//     }
+  // En el ngOnInit del component que recibe
+  // const navigation = this.router.getCurrentNavigation();
+  // let objeto= navigation.extras.state as {example: Trabajadores};
+  // this.trabajador = objeto.example as Trabajadores;
+  // console.info(this.trabajador.nombre);
 }

@@ -8,11 +8,11 @@ export class Experiencia {
     lugar: string;
     titulo: string;
     descripcion: string;
-    estado: boolean;
+    
 
 
     
-    constructor(imgIcono: string, linkIcono: string, nombre: string, fechainicio: string, fechafin: string, lugar: string, titulo: string, descripcion: string, estado: boolean) {
+    constructor(imgIcono: string, linkIcono: string, nombre: string, fechainicio: string, fechafin: string, lugar: string, titulo: string, descripcion: string) {
         this.imgIcono = imgIcono;
         this.linkIcono = linkIcono;
         this.nombre = nombre;
@@ -21,7 +21,6 @@ export class Experiencia {
         this.lugar = lugar;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.estado = estado;
     }
 
 

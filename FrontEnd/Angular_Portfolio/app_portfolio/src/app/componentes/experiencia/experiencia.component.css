@@ -8,6 +8,11 @@ h1, h3{
     float: inline-end;
     float:right;
 }
+#logo{
+    display: grid;
+    width: 80px;
+    height: auto;
+}
 #imgcomp{
     width: 100%;
     margin-top: 10%;
