@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { Contacto } from 'src/app/model/contacto';
+import { Redes } from 'src/app/model/redes';
+import { ContactoService } from 'src/app/servicios/contacto.service';
+import { RedesService } from 'src/app/servicios/redes.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,15 +10,21 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  redesList: any;
-  contactoList: any;
-  constructor(private datosPorfolio: PorfolioService) { }
+  redesList: Array<Redes>;
+  contactoList: Array<Contacto>;
+
+  constructor(private redesService: RedesService, private contactoService: ContactoService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.redesList = data.redes;
-      this.contactoList = data.contacto;
-    })
+    this.cargarRedes();
+    this.cargarContacto();
   }
 
+  cargarRedes(): void {
+    this.redesService.getRedes().subscribe(data => { this.redesList = data })
+  }
+
+  cargarContacto(): void {
+    this.contactoService.getContacto().subscribe(data => { this.contactoList = data })
+  }
 }

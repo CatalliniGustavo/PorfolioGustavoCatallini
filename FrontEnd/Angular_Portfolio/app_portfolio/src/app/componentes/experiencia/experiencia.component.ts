@@ -42,20 +42,4 @@ export class ExperienciaComponent implements OnInit {
       )
     }
   }
-  // expModificar(exp: Experiencia) {
-  //   let dato: NavigationExtras = {state: {example: exp}};
-  //   this.router.navigate(['/expModif'], dato);
-  // }
-
-//   En el component que envia
-
-//  capturaMovimientos(rowSelect) {
-//  const dato: NavigationExtras = {state: {example: rowSelect}};
-//       this.router.navigate(['/movimientos-sua'], dato);
-//     }
-  // En el ngOnInit del component que recibe
-  // const navigation = this.router.getCurrentNavigation();
-  // let objeto= navigation.extras.state as {example: Trabajadores};
-  // this.trabajador = objeto.example as Trabajadores;
-  // console.info(this.trabajador.nombre);
 }

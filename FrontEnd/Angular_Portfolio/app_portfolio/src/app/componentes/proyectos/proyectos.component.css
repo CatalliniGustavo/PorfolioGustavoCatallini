@@ -24,3 +24,9 @@ p {
   font-weight: bold;
   text-align: justify;
 }
+#sec {
+  box-shadow: 0px 0px 20px #0000004d;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px;
+}

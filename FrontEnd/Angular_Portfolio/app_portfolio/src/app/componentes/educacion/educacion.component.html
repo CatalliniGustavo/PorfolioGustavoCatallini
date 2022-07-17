@@ -2,22 +2,25 @@
     <div class="row">
         <div>
             <h1>Educación:</h1>
-            <a href="#" id="beditar" ><i class="fa fa-plus"></i></a>
+            <a routerLink="/newEdu" *ngIf="admin" id="beditar"><i class="fa fa-plus"></i></a>
         </div>
-        <div >
+        <div>
             <ul>
-                <li *ngFor="let educacion of educacionList" class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
-                        <a [href]="educacion.enlace" target="_blank"><img [src]="educacion.img" id="imgcomp"></a>
+                <li *ngFor="let educacion of educaciones" class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1" id="logo">
+                        <a [href]="educacion.linkIcono" target="_blank"><img [src]="educacion.imgIcono"
+                                id="imgcomp"></a>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-                        <h1>{{educacion.school}}</h1>
-                        <h3> ({{educacion.duracion}}</h3>
-                        <a href="#" id="beditar"><i class="fa fa-pen"></i></a>
-                        <a href="#" id="beditar"><i class="fa fa-solid fa-trash"></i></a>
-                        <h3> <time> {{educacion.start}}</time> - <time>{{educacion.end}})</time> </h3>
+                        <h1>{{educacion.nombre}}</h1>
+                        <h3> (Inicio: </h3>
+                        <a routerLink="/editEdu/{{educacion.id}}" *ngIf="admin" id="beditar"><i
+                                class="fa fa-pen"></i></a>
+                        <a *ngIf="admin" id="beditar" (click)="delete(educacion.id)"><i
+                                class="fa fa-solid fa-trash"></i></a>
+                        <h3> <time> {{educacion.fechainicio}}</time>) - (Hasta: <time>{{educacion.fechafin}})</time> </h3>
                         <h4> {{educacion.lugar}}</h4>
-                        <h5>{{educacion.title}}</h5>
+                        <h5>{{educacion.titulo}}</h5>
                         <p>{{educacion.descripcion}}</p>
                     </div>
                 </li>

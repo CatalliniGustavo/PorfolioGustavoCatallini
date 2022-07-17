@@ -10,9 +10,9 @@
                 <h1>Redes Sociales</h1>
                 <div class="row">
                     <ul>
-                        <li *ngFor="let redes of redesList" >
-                            <a [href]="redes.enlace" target="_blank"><img [src]="redes.img"></a>
-                            <label>{{redes.name}}</label>
+                        <li *ngFor="let redes of redesList">
+                            <a [href]="redes.linkIcono" target="_blank"><img [src]="redes.imgIcono"></a>
+                            <label>{{redes.nombre}}</label>
                         </li>
                     </ul>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="row2">
                     <ul>
                         <li *ngFor="let contacto of contactoList">
-                            <a [href]="contacto.link" target="_blank"><img [src]="contacto.img"></a>
+                            <a [href]="contacto.linkIcono" target="_blank"><img [src]="contacto.imgIcono"></a>
                             <label>{{contacto.enlace}}</label>
                         </li>
                     </ul>

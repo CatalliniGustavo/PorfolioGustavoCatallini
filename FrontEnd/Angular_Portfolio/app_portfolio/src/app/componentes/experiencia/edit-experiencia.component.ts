@@ -37,5 +37,7 @@ export class EditExperienciaComponent implements OnInit {
       }
     )
   }
-
+  cancel() {
+    this.router.navigate(['']);
+  }
 }

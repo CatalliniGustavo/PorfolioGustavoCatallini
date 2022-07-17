@@ -16,7 +16,7 @@
                         <h3> (Inicio: </h3>
                         <a routerLink="/editExp/{{experiencia.id}}" *ngIf="admin" id="beditar"><i
                                 class="fa fa-pen"></i></a>
-                        <a href="#" *ngIf="admin" id="beditar" (click)="delete(experiencia.id)"><i
+                        <a href="#experiencia" *ngIf="admin" id="beditar" (click)="delete(experiencia.id)"><i
                                 class="fa fa-solid fa-trash"></i></a>
                         <h3> <time> {{experiencia.fechainicio}}</time>) - (Hasta: <time>{{experiencia.fechafin}})</time> </h3>
                         <h4> {{experiencia.lugar}}</h4>
