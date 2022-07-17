@@ -26,6 +26,7 @@ import { NewExperienciaComponent } from './componentes/experiencia/new-experienc
 import { EditExperienciaComponent } from './componentes/experiencia/edit-experiencia.component';
 import { NewEducacionComponent } from './componentes/educacion/new-educacion.component';
 import { EditEducacionComponent } from './componentes/educacion/edit-educacion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { EditEducacionComponent } from './componentes/educacion/edit-educacion.c
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,

@@ -17,6 +17,6 @@
     <label for="nombre">Descripción del programa de estudios</label>
     <input type="text" id="descripcion" name="descripcion" class="form-control" [(ngModel)]="descripcion" required>
   
-    <button class="w-100 btn btn-lg btn-primary" (click)="cancel()">Cancelar</button>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Agregar</button>
+    <a (click)="closeModal()" href="#educacion" class="w-100 btn btn-lg btn-primary">Cancelar</a>
+    <button href="#educacion" class="w-100 btn btn-lg btn-primary" type="submit">Agregar</button>
   </form>

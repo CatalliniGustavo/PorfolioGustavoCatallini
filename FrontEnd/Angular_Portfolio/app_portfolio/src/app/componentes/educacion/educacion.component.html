@@ -2,8 +2,12 @@
     <div class="row">
         <div>
             <h1>Educación:</h1>
-            <a routerLink="/newEdu" *ngIf="admin" id="beditar"><i class="fa fa-plus"></i></a>
+            <a (click)="openModal()" *ngIf="admin" id="beditar"><i class="fa fa-plus"></i></a>
         </div>
+        <div *ngIf="modalSwitch == true">
+            <app-new-educacion></app-new-educacion>
+        </div>
+        
         <div>
             <ul>
                 <li *ngFor="let educacion of educaciones" class="row">
@@ -16,7 +20,7 @@
                         <h3> (Inicio: </h3>
                         <a routerLink="/editEdu/{{educacion.id}}" *ngIf="admin" id="beditar"><i
                                 class="fa fa-pen"></i></a>
-                        <a *ngIf="admin" id="beditar" (click)="delete(educacion.id)"><i
+                        <a  *ngIf="admin" id="beditar" (click)="delete(educacion.id)"><i
                                 class="fa fa-solid fa-trash"></i></a>
                         <h3> <time> {{educacion.fechainicio}}</time>) - (Hasta: <time>{{educacion.fechafin}})</time> </h3>
                         <h4> {{educacion.lugar}}</h4>
