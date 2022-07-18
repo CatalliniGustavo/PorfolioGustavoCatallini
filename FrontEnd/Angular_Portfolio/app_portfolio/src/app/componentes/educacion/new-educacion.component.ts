@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { SwitchService } from 'src/app/servicios/switch.service';
@@ -21,11 +22,14 @@ export class NewEducacionComponent implements OnInit {
   constructor(
     private educacionService: EducacionService,
     private router: Router,
-    private modalss: SwitchService
+    private modalss: SwitchService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
+    
   }
+
 
   onCreate(): void {
     const edu = new Educacion(
@@ -39,6 +43,7 @@ export class NewEducacionComponent implements OnInit {
       this.descripcion);
     this.educacionService.save(edu).subscribe(data => {
       this.closeModal()
+      this.modalService.dismissAll();
       // this.router.navigate(['edu']);
     }, err => {
       alert("Falla en el intento de cargar la nueva Educacion");
@@ -49,7 +54,7 @@ export class NewEducacionComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['']);
+    this.modalService.dismissAll();
   }
 
   closeModal(){

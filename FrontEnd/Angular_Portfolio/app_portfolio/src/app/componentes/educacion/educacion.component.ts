@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { SwitchService } from 'src/app/servicios/switch.service';
@@ -16,16 +17,18 @@ export class EducacionComponent implements OnInit {
   isLogin: boolean = false;
   educaciones: Array<Educacion> = [];
   modalSwitch: boolean;
+
   constructor(
     public educacionService: EducacionService,
     private tokenService: TokenService,
     private router: Router,
     private modalss: SwitchService,
-    
-   ) { }
+    private modalService: NgbModal
+
+  ) { }
 
   ngOnInit(): void {
-    
+
     if (this.tokenService.getAthorities().includes("ROLE_ADMIN")) {
       this.admin = true;
     }
@@ -33,7 +36,7 @@ export class EducacionComponent implements OnInit {
       this.isLogin = true;
     }
     this.cargarEducacion();
-    this.modalss.$modal.subscribe((valor)=>{
+    this.modalss.$modal.subscribe((valor) => {
       this.modalSwitch = valor
       this.cargarEducacion();
     });
@@ -48,7 +51,6 @@ export class EducacionComponent implements OnInit {
     if (id != undefined) {
       this.educacionService.delete(id).subscribe(
         data => {
-          this.router.navigateByUrl('/#experiencia')
           this.cargarEducacion();
         }, err => {
           alert("No se pudo borrar la Educacion");
@@ -57,7 +59,29 @@ export class EducacionComponent implements OnInit {
     }
   }
 
-  openModal(){
-    this.modalSwitch = true;
+  /////////////////////////////////----------/////////////////////////
+  open(content: any) {
+
+    this.modalService.open(content);
+
+    //   ,{ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    //   this.closeResult = `Closed with: ${result}`;
+    // }, (reason) => {
+    //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    // });
   }
+
+  openEdit(content: any, val: number){
+    this.modalss.valor = val;
+    this.modalService.open(content);
+  }
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
 }

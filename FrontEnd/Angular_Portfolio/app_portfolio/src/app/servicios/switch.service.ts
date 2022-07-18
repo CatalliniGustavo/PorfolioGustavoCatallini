@@ -7,5 +7,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class SwitchService {
 
   $modal = new EventEmitter<any>();
+  valor: number ;
 
 }
