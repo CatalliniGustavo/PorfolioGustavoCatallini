@@ -47,12 +47,13 @@ export class EducacionComponent implements OnInit {
     this.educacionService.getEducacion().subscribe(data => { this.educaciones = data })
   }
   delete(id?: number) {
-
     if (id != undefined) {
       this.educacionService.delete(id).subscribe(
         data => {
+          this.modalService.dismissAll();
           this.cargarEducacion();
         }, err => {
+          this.modalService.dismissAll();
           alert("No se pudo borrar la Educacion");
         }
       )
@@ -71,6 +72,9 @@ export class EducacionComponent implements OnInit {
     // });
   }
 
+  cancel(){
+    this.modalService.dismissAll();
+  }
   openEdit(content: any, val: number){
     this.modalss.valor = val;
     this.modalService.open(content);

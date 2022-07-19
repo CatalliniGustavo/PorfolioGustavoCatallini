@@ -27,6 +27,7 @@ import { EditExperienciaComponent } from './componentes/experiencia/edit-experie
 import { NewEducacionComponent } from './componentes/educacion/new-educacion.component';
 import { EditEducacionComponent } from './componentes/educacion/edit-educacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BorrarComponent } from './componentes/borrar/borrar.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditExperienciaComponent,
     NewEducacionComponent,
     EditEducacionComponent,
+    BorrarComponent,
     
   ],
   imports: [

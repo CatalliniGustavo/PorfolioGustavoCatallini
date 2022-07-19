@@ -22,8 +22,24 @@
                                 <ng-template #edit let-modal>
                                     <app-edit-educacion></app-edit-educacion>
                                 </ng-template>
-                        <a href="/#educacion" *ngIf="admin" id="beditar" (click)="delete(educacion.id)"><i
+                        <a href="/#educacion" (click)="open(trash)" *ngIf="admin" id="beditar"><i
                                 class="fa fa-solid fa-trash"></i></a>
+                                <ng-template #trash let-modal>
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Borrar Registro</h5>
+                                          </div>
+                                          <div class="modal-body">
+                                            !!!!Seguro que quiere eleminar?
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" (click)="cancel()" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-primary" (click)="delete(educacion.id)">Borrar</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </ng-template>
                         <h3> <time> {{educacion.fechainicio}}</time>) - (Hasta: <time>{{educacion.fechafin}})</time> </h3>
                         <h4> {{educacion.lugar}}</h4>
                         <h5>{{educacion.titulo}}</h5>

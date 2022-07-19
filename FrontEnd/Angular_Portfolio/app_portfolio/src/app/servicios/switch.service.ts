@@ -8,5 +8,6 @@ export class SwitchService {
 
   $modal = new EventEmitter<any>();
   valor: number ;
+  tof: boolean;
 
 }

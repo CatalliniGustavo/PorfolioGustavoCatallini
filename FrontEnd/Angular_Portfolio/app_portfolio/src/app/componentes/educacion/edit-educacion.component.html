@@ -16,9 +16,11 @@
   <label for="nombre">Título de la posición</label>
   <input type="text" id="titulo" name="titulo" class="form-control" [(ngModel)]="educacion.titulo" required>
   <label for="nombre">Descripción de la tarea</label>
-  <input type="text" id="descripcion" name="descripcion" class="form-control" [(ngModel)]="educacion.descripcion"
-    required>
+  <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion"
+    required></textarea>
 
-  <a (click)="cancel()" href="#educacion" class="w-100 btn btn-lg btn-primary">Cancelar</a>
-  <button href="#educacion" class="w-100 btn btn-lg btn-primary" type="submit">Actualizar</button>
+  <div id="bot">
+    <a (click)="cancel()" href="#educacion" id="bot" class="w-40 btn btn-lg btn-primary">Cancelar</a>
+    <button href="#educacion" id="bot" class="w-40 btn btn-lg btn-primary" type="submit">Actualizar</button>
+  </div>
 </form>
