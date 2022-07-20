@@ -50,6 +50,7 @@ public class EduController {
         eduAnt.setNombre(educacion.getNombre());
         eduAnt.setTitulo(educacion.getTitulo());
         iEducacionService.saveEducacion(eduAnt);
+        
         return new ResponseEntity(new Mensaje("La Educacion fue actualizada"), HttpStatus.OK);
     }
 

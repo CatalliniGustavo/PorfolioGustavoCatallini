@@ -30,6 +30,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BorrarComponent } from './componentes/borrar/borrar.component';
 import { NewHabilidadComponent } from './componentes/habilidades/new-habilidad.component';
 import { EdiHabilidadComponent } from './componentes/habilidades/edi-habilidad.component';
+import { EditHabilidadDComponent } from './componentes/habilidades/edit-habilidad-d.component';
+import { NewHabilidadDComponent } from './componentes/habilidades/new-habilidad-d.component';
+import { NewProyectoComponent } from './componentes/proyectos/new-proyecto.component';
+import { EditProyectoComponent } from './componentes/proyectos/edit-proyecto.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,11 @@ import { EdiHabilidadComponent } from './componentes/habilidades/edi-habilidad.c
     EditEducacionComponent,
     BorrarComponent,
     NewHabilidadComponent,
-    EdiHabilidadComponent
+    EdiHabilidadComponent,
+    EditHabilidadDComponent,
+    NewHabilidadDComponent,
+    NewProyectoComponent,
+    EditProyectoComponent
   ],
   imports: [
     BrowserModule,

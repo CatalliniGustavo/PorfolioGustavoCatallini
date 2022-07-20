@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Hblandas } from 'src/app/model/hblandas';
-import { HblandasService } from 'src/app/servicios/hblandas.service';
+import { Hduras } from 'src/app/model/hduras';
+import { HdurasService } from 'src/app/servicios/hduras.service';
 import { SwitchService } from 'src/app/servicios/switch.service';
 
 @Component({
-  selector: 'app-new-habilidad',
-  templateUrl: './new-habilidad.component.html',
-  styleUrls: ['./new-habilidad.component.css']
+  selector: 'app-new-habilidad-d',
+  templateUrl: './new-habilidad-d.component.html',
+  styleUrls: ['./new-habilidad-d.component.css']
 })
-export class NewHabilidadComponent implements OnInit {
+export class NewHabilidadDComponent implements OnInit {
 
   id?: number;
   imgIcono: string;
@@ -18,7 +18,7 @@ export class NewHabilidadComponent implements OnInit {
   tiempoexpe: number;
 
   constructor(
-    private hblandaService: HblandasService,
+    private hdurasService: HdurasService,
     private modalss: SwitchService,
     private modalService: NgbModal
   ) { }
@@ -27,31 +27,29 @@ export class NewHabilidadComponent implements OnInit {
   }
 
   onCreate(): void {
-    const hb = new Hblandas(
+    const hb = new Hduras(
       this.imgIcono,
       this.nombre,
-      this.tiempoexpe,
-      this.progreso
-      
-      );
+      this.progreso,
+      this.tiempoexpe
+    );
 
-    this.hblandaService.save(hb).subscribe(data => {
+    this.hdurasService.save(hb).subscribe(data => {
       this.closeModal()
       this.modalService.dismissAll();
     }, err => {
-      alert("Falla en el intento de cargar la nueva Habilidad Blanda");
+      alert("Falla en el intento de cargar la nueva Habilidad Dura");
       this.modalService.dismissAll();
     }
     );
-    
+
   }
 
   cancel() {
     this.modalService.dismissAll();
   }
 
-  closeModal(){
+  closeModal() {
     this.modalss.$modal.emit(false);
   }
-
 }

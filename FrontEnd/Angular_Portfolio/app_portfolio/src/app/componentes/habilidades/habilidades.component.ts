@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Hblandas } from 'src/app/model/hblandas';
 import { Hduras } from 'src/app/model/hduras';

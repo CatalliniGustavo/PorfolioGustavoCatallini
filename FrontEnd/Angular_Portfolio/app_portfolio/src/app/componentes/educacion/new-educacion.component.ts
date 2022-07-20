@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
@@ -22,7 +21,6 @@ export class NewEducacionComponent implements OnInit {
 
   constructor(
     private educacionService: EducacionService,
-    private router: Router,
     private modalss: SwitchService,
     private modalService: NgbModal
   ) { }
