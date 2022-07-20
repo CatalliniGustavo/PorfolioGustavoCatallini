@@ -18,10 +18,12 @@ export class BorrarComponent implements OnInit {
   }
 
   tr(){
+    this.modalService.dismissAll
     this.swichtService.tof = true;
   }
 
   cancel(){
-
+    this.swichtService.tof = false;
+    this.modalService.dismissAll
   }
 }

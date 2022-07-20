@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { SwitchService } from 'src/app/servicios/switch.service';
 
 @Component({
   selector: 'app-new-experiencia',
@@ -17,9 +19,12 @@ export class NewExperienciaComponent implements OnInit {
   lugar: string = 'Pais';
   titulo: string = 'Título de la ocupación';
   descripcion: string = 'Descripción de las tareas realizadas';
+
   constructor(
     private experienciaService: ExperienciaService,
-    private router: Router
+    private router: Router,
+    private modalss: SwitchService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -37,15 +42,21 @@ export class NewExperienciaComponent implements OnInit {
       this.descripcion);
     this.experienciaService.save(expe).subscribe(data => {
       this.router.navigate(['']);
+      this.closeModal()
+      this.modalService.dismissAll();
     }, err => {
       alert("Falla en el intento de cargar la nueva experiencia");
-      this.router.navigate(['']);
+      this.modalService.dismissAll();
     }
     );
 
   }
 
   cancel(){
-    this.router.navigate(['']);
+    this.modalService.dismissAll();
+  }
+
+  closeModal(){
+    this.modalss.$modal.emit(false);
   }
 }

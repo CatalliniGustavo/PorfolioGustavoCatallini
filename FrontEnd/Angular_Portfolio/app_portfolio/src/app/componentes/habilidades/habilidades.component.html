@@ -1,8 +1,10 @@
 <div class="card mat-card" style="border-radius: 30px;">
     <div style="padding: 2%;">
         <div>
-            <h1>Habilidades:</h1><a href="#" *ngIf="admin" id="bagregar"><i class="fa fa-plus"></i></a>
-
+            <h1>Habilidades:</h1><a href="#" (click)="openHb(hblandas)" *ngIf="admin" id="bagregar"><i class="fa fa-plus"></i></a>
+            <ng-template #hblandas let-modal>
+                <app-new-habilidad></app-new-habilidad>
+            </ng-template>
             <h3>Blandas:</h3>
 
         </div>

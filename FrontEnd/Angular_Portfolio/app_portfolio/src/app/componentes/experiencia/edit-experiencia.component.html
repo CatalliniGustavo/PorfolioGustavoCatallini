@@ -17,6 +17,8 @@
     <label for="nombre">Descripción de la tarea</label>
     <input type="text" id="descripcion" name="descripcion" class="form-control" [(ngModel)]="experiencia.descripcion" required>
     
-    <a href="#experiencia" class="w-100 btn btn-lg btn-primary">Cancelar</a>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Actualizar</button>
+    <div id="bot">
+      <a (click)="cancel()" href="#experiencia" id="bot" class="w-40 btn btn-lg btn-primary">Cancelar</a>
+      <button href="#experiencia" id="bot" class="w-40 btn btn-lg btn-primary" type="submit">Actualizar</button>
+    </div>
   </form>

@@ -19,6 +19,7 @@ export class NewEducacionComponent implements OnInit {
   lugar: string = 'Pais';
   titulo: string = 'Título de la ocupación';
   descripcion: string = 'Descripción de las tareas realizadas';
+
   constructor(
     private educacionService: EducacionService,
     private router: Router,
@@ -27,7 +28,6 @@ export class NewEducacionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
   }
 
 
@@ -44,13 +44,12 @@ export class NewEducacionComponent implements OnInit {
     this.educacionService.save(edu).subscribe(data => {
       this.closeModal()
       this.modalService.dismissAll();
-      // this.router.navigate(['edu']);
     }, err => {
       alert("Falla en el intento de cargar la nueva Educacion");
-      this.router.navigate(['']);
+      this.modalService.dismissAll();
     }
     );
-
+    
   }
 
   cancel() {

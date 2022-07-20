@@ -28,6 +28,8 @@ import { NewEducacionComponent } from './componentes/educacion/new-educacion.com
 import { EditEducacionComponent } from './componentes/educacion/edit-educacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BorrarComponent } from './componentes/borrar/borrar.component';
+import { NewHabilidadComponent } from './componentes/habilidades/new-habilidad.component';
+import { EdiHabilidadComponent } from './componentes/habilidades/edi-habilidad.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { BorrarComponent } from './componentes/borrar/borrar.component';
     NewEducacionComponent,
     EditEducacionComponent,
     BorrarComponent,
-    
+    NewHabilidadComponent,
+    EdiHabilidadComponent
   ],
   imports: [
     BrowserModule,

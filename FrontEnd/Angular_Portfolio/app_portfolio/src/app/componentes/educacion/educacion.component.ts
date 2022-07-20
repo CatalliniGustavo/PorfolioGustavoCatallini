@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { SwitchService } from 'src/app/servicios/switch.service';
@@ -13,6 +12,7 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
+
   admin: boolean = false;
   isLogin: boolean = false;
   educaciones: Array<Educacion> = [];
@@ -21,10 +21,8 @@ export class EducacionComponent implements OnInit {
   constructor(
     public educacionService: EducacionService,
     private tokenService: TokenService,
-    private router: Router,
     private modalss: SwitchService,
     private modalService: NgbModal
-
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +33,7 @@ export class EducacionComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.isLogin = true;
     }
+
     this.cargarEducacion();
     this.modalss.$modal.subscribe((valor) => {
       this.modalSwitch = valor
@@ -46,6 +45,7 @@ export class EducacionComponent implements OnInit {
   cargarEducacion(): void {
     this.educacionService.getEducacion().subscribe(data => { this.educaciones = data })
   }
+
   delete(id?: number) {
     if (id != undefined) {
       this.educacionService.delete(id).subscribe(
@@ -62,9 +62,7 @@ export class EducacionComponent implements OnInit {
 
   /////////////////////////////////----------/////////////////////////
   open(content: any) {
-
     this.modalService.open(content);
-
     //   ,{ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
     //   this.closeResult = `Closed with: ${result}`;
     // }, (reason) => {
@@ -75,6 +73,7 @@ export class EducacionComponent implements OnInit {
   cancel(){
     this.modalService.dismissAll();
   }
+  
   openEdit(content: any, val: number){
     this.modalss.valor = val;
     this.modalService.open(content);
