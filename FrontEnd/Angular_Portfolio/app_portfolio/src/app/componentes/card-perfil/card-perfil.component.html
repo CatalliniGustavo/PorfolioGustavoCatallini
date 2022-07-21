@@ -15,7 +15,10 @@
             <p>{{user.acerca}}</p>
         </div>
         <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1" >
-            <a *ngIf="admin" href="#" id="beditar" ><i class="fa fa-pen"></i></a>
+            <a *ngIf="admin" (click)="open(edit)" id="beditar" ><i class="fa fa-pen"></i></a>
+            <ng-template #edit let-modal>
+                <app-editar-perfil></app-editar-perfil>
+            </ng-template>
         </div>
     </div>
 </div>

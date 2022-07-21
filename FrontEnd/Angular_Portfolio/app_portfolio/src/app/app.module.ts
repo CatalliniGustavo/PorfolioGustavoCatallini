@@ -36,6 +36,12 @@ import { NewProyectoComponent } from './componentes/proyectos/new-proyecto.compo
 import { EditProyectoComponent } from './componentes/proyectos/edit-proyecto.component';
 import { EditRedComponent } from './componentes/header/edit-red.component';
 import { NewRedComponent } from './componentes/header/new-red.component';
+import { EditRedesComponent } from './componentes/edit-redes/edit-redes.component';
+import { EditarRedComponent } from './componentes/edit-redes/editar-red.component';
+import { NuevaRedComponent } from './componentes/edit-redes/nueva-red.component';
+import { NuevoContactoComponent } from './componentes/edit-redes/nuevo-contacto.component';
+import { EditarContactoComponent } from './componentes/edit-redes/editar-contacto.component';
+import { EditarPerfilComponent } from './componentes/card-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +72,13 @@ import { NewRedComponent } from './componentes/header/new-red.component';
     NewProyectoComponent,
     EditProyectoComponent,
     EditRedComponent,
-    NewRedComponent
+    NewRedComponent,
+    EditRedesComponent,
+    EditarRedComponent,
+    NuevaRedComponent,
+    NuevoContactoComponent,
+    EditarContactoComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,

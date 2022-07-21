@@ -33,3 +33,9 @@ button{
 #list{
     margin-block-end: 10px;
 }
+
+#rededi{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
