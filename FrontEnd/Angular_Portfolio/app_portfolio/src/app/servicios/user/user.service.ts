@@ -21,7 +21,21 @@ export class UserService {
     }else{
       return this.datosPorfolio.obtenerDatos();
     }
-    
   }
 
+  public detail(): Observable<user> {
+    return this.http.get<user>(this.URL + 'traer/perfil');
+  }
+
+  public save(user: user): Observable<any> {
+    return this.http.post<any>(this.URL + 'crear', user);
+  }
+
+  public update(user: user): Observable<any> {
+    return this.http.put<any>(this.URL + 'update', user);
+  }
+
+  public delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.URL + `delete/${id}`);
+  }
 }
