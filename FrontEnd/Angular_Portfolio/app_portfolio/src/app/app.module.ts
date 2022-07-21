@@ -34,6 +34,8 @@ import { EditHabilidadDComponent } from './componentes/habilidades/edit-habilida
 import { NewHabilidadDComponent } from './componentes/habilidades/new-habilidad-d.component';
 import { NewProyectoComponent } from './componentes/proyectos/new-proyecto.component';
 import { EditProyectoComponent } from './componentes/proyectos/edit-proyecto.component';
+import { EditRedComponent } from './componentes/header/edit-red.component';
+import { NewRedComponent } from './componentes/header/new-red.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { EditProyectoComponent } from './componentes/proyectos/edit-proyecto.com
     EditHabilidadDComponent,
     NewHabilidadDComponent,
     NewProyectoComponent,
-    EditProyectoComponent
+    EditProyectoComponent,
+    EditRedComponent,
+    NewRedComponent
   ],
   imports: [
     BrowserModule,

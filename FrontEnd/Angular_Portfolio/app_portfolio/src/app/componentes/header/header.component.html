@@ -11,7 +11,9 @@
 </nav> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank"><img src="../../../assets/img/ArgentinaPrograma.jpg" id="aplogo"></a>
+        <a class="navbar-brand"
+            href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
+            target="_blank"><img src="../../../assets/img/ArgentinaPrograma.jpg" id="aplogo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,22 +30,63 @@
                         <a class="nav-link active" aria-current="page" href="#"></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a *ngIf="isLogged" class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a *ngIf="isLogin" class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Redes
                         </a>
                         <ul class="dropdown-menu" id="list" aria-labelledby="navbarDropdown">
-                            <li *ngFor="let redes of redesList" >
-                                <a class="dropdown-item" [href]="redes.linkIcono" target="_blank"><img [src]="redes.imgIcono"
-                                        id="imgR">{{redes.nombre}}</a>
+                            <a (click)="open(content)" *ngIf="admin" id="beditar"><i class="fa fa-plus"></i></a>
+                            <li *ngFor="let redes of redesList">
+                                <a class="dropdown-item" [href]="redes.linkIcono" target="_blank"><img
+                                        [src]="redes.imgIcono" id="imgR">{{redes.nombre}}</a>
+                                <div>
+                                    <a (click)="openEdit(edit, redes.id)" *ngIf="admin" id="beditar"><i
+                                            class="fa fa-pen"></i></a>
+                                    <a (click)="open(trash)" *ngIf="admin" id="beditar"><i
+                                            class="fa fa-solid fa-trash"></i></a>
+                                    <ng-template #trash let-modal>
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Borrar Registro</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    !!!!Seguro que quiere eleminar?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" (click)="cancel()"
+                                                        data-dismiss="modal">Cancelar</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        (click)="delete(redes.id)">Borrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </div>
+
                             </li>
+                            <ng-template #edit let-modal>
+                                <app-edit-red></app-edit-red>
+                            </ng-template>
+
+                            <ng-template #content let-modal>
+                                <app-new-red></app-new-red>
+                            </ng-template>
                         </ul>
                     </li>
-                    <button class="btn btn-danger" type="submit" (click)="login()" *ngIf="!isLogged">Login</button>
-                    <button class="btn btn-danger" type="submit" (click)="register()" *ngIf="!isLogged">Registrarse</button>
-                    <button class="btn btn-danger" type="submit" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesión</button>
+                    <button class="btn btn-danger" type="submit" (click)="open(login)" *ngIf="!isLogin">Login</button>
+                    <ng-template #login let-modal>
+                        <app-login></app-login>
+                    </ng-template>
+                    <button class="btn btn-danger" type="submit" (click)="open(registre)"
+                        *ngIf="!isLogin">Registrarse</button>
+                        <ng-template #registre let-modal>
+                            <app-register></app-register>
+                        </ng-template>
+                    <button class="btn btn-danger" type="submit" (click)="onLogOut()" *ngIf="isLogin">Cerrar
+                        Sesión</button>
                 </ul>
-                
+
             </form>
         </div>
     </div>

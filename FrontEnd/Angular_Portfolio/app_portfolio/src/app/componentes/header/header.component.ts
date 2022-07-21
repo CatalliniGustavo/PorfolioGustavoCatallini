@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Redes } from 'src/app/model/redes';
-import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import { RedesService } from 'src/app/servicios/redes.service';
+import { SwitchService } from 'src/app/servicios/switch.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
@@ -11,18 +12,35 @@ import { TokenService } from 'src/app/servicios/token.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLogged = false;
-  redesList: Array<Redes>;
 
-  constructor(private redesService: RedesService, private router:Router, private tokenService: TokenService) { }
-  
+  admin: boolean = false;
+  isLogin: boolean = false;
+  redesList: Array<Redes>;
+  modalSwitch: boolean;
+
+  constructor(
+    private redesService: RedesService,
+    private tokenService: TokenService,
+    private modalss: SwitchService,
+    private modalService: NgbModal
+  ) { }
+
   ngOnInit(): void {
-    this.cargarRedes();
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
+    
+    if (this.tokenService.getAthorities().includes("ROLE_ADMIN")) {
+      this.admin = true;
     }
+    if (this.tokenService.getToken()) {
+      this.isLogin = true;
+    }
+
+    this.cargarRedes();
+
+    this.modalss.$modal.subscribe((valor) => {
+      this.modalSwitch = valor
+      this.cargarRedes();
+    });
+
   }
 
   cargarRedes(): void {
@@ -33,9 +51,11 @@ export class HeaderComponent implements OnInit {
     if (id != undefined) {
       this.redesService.delete(id).subscribe(
         data => {
+          this.modalService.dismissAll();
           this.cargarRedes();
         }, err => {
           alert("No se pudo borrar la Red");
+          this.modalService.dismissAll();
         }
       )
     }
@@ -46,12 +66,18 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
 
-  login(){
-    this.router.navigate(['/login'])
+  open(content: any) {
+    this.modalService.open(content);
   }
 
-  register(){
-    this.router.navigate(['/register'])
+
+  cancel(){
+    this.modalService.dismissAll();
+  }
+
+  openEdit(content: any, val: number){
+    this.modalss.valor = val;
+    this.modalService.open(content);
   }
 
 }

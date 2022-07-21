@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NuevoUsuario } from 'src/app/model/nuevo-usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { TokenService } from 'src/app/servicios/token.service';
@@ -24,7 +25,9 @@ export class RegisterComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -43,7 +46,8 @@ export class RegisterComponent implements OnInit {
       this.tokenService.setUserName(data.email);
       this.tokenService.setAthorities(data.authorities);
       this.roles = data.authorities;
-      this.router.navigate([''])
+      window.location.reload();
+      this.modalService.dismissAll();
     }, err => {
       this.isLogged = false;
       this.isLogginFail = true;
@@ -51,5 +55,9 @@ export class RegisterComponent implements OnInit {
       console.log(this.errMsj);
 
     })
+  }
+
+  cancel(){
+    this.modalService.dismissAll();
   }
 }
