@@ -17,7 +17,8 @@ export class CardPerfilComponent implements OnInit {
   isLogin: boolean = false;
   modalSwitch: boolean;
   banner: String = "../../../assets/img/Banner.jpg"
-  
+  errMsj!: string;
+
   constructor(
     public userService: UserService,
     private tokenService: TokenService,
@@ -34,12 +35,6 @@ export class CardPerfilComponent implements OnInit {
     }
     this.userService.getUser().subscribe(data => { 
       this.user = data 
-      console.log(this.user.banner);
-      if (this.user.banner == "") {
-        console.log("Entro al if");
-        this.user.banner = this.banner;
-        this.cargarPerfil()
-      }
     });
 
     this.cargarPerfil();
@@ -54,10 +49,6 @@ export class CardPerfilComponent implements OnInit {
   cargarPerfil(): void {
     this.userService.getUser().subscribe(data => { 
       this.user = data 
-      if (this.user.banner == "") {
-        console.log("Entro al if");
-        this.user.banner = this.banner;
-      }
     })
   }
 

@@ -16,7 +16,8 @@ export class NewHabilidadComponent implements OnInit {
   nombre: string;
   progreso: number;
   tiempoexpe: number;
-
+  errMsj!: string;
+  
   constructor(
     private hblandaService: HblandasService,
     private modalss: SwitchService,
@@ -39,8 +40,9 @@ export class NewHabilidadComponent implements OnInit {
       this.closeModal()
       this.modalService.dismissAll();
     }, err => {
-      alert("Falla en el intento de cargar la nueva Habilidad Blanda");
-      this.modalService.dismissAll();
+      this.errMsj = err.error.mensaje;
+      // alert("Falla en el intento de cargar la nueva Habilidad Blanda");
+      // this.modalService.dismissAll();
     }
     );
     

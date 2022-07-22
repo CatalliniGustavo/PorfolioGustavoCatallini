@@ -15,6 +15,7 @@ export class NewProyectoComponent implements OnInit {
   nombre: string;
   descripcion: string;
   github: string;
+  errMsj!: string;
 
   constructor(
     private proyectoService: ProyectosService,
@@ -36,8 +37,9 @@ export class NewProyectoComponent implements OnInit {
       this.closeModal()
       this.modalService.dismissAll();
     }, err => {
-      alert("Falla en el intento de cargar el nuevo Proyecto");
-      this.modalService.dismissAll();
+      this.errMsj = err.error.mensaje;
+      // alert("Falla en el intento de cargar el nuevo Proyecto");
+      // this.modalService.dismissAll();
     }
     );
   }

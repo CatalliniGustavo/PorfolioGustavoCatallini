@@ -13,6 +13,7 @@ export class EditHabilidadDComponent implements OnInit {
 
   hduras: Hduras;
   id: number;
+  errMsj!: string;
 
   constructor(
     private hdurasService: HdurasService,
@@ -39,8 +40,9 @@ export class EditHabilidadDComponent implements OnInit {
         this.closeModal()
         this.modalService.dismissAll();
       }, err => {
-        alert("Error al modificar la habilidad blanda");
-        this.modalService.dismissAll();
+        this.errMsj = err.error.mensaje;
+        // alert("Error al modificar la habilidad blanda");
+        // this.modalService.dismissAll();
       }
     )
   }

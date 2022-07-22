@@ -13,6 +13,7 @@ export class EdiHabilidadComponent implements OnInit {
 
   hblandas: Hblandas;
   id: number;
+  errMsj!: string;
 
   constructor(
     private hblandasService: HblandasService,
@@ -26,9 +27,11 @@ export class EdiHabilidadComponent implements OnInit {
     this.hblandasService.detail(this.id).subscribe(
       data => {
         this.hblandas = data;
+
       }, err => {
+        this.errMsj = err.error.mensaje;
         alert("Error al cargar la habilidad blanda");
-        this.modalService.dismissAll();
+        // this.modalService.dismissAll();
       }
     )
   }
@@ -39,8 +42,8 @@ export class EdiHabilidadComponent implements OnInit {
         this.closeModal()
         this.modalService.dismissAll();
       }, err => {
-        alert("Error al modificar la habilidad blanda");
-        this.modalService.dismissAll();
+        this.errMsj = err.error.mensaje;
+        // this.modalService.dismissAll();
       }
     )
   }

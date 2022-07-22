@@ -1,5 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
   <h1 class="h3 mb-3 fw-normal" style="color: red">Nueva Habilidad Blanda</h1>
+  <p style="color: red">{{errMsj}}</p>
   <label for="nombre">Imagen de la habilidad</label>
   <input type="text" id="imgIcono" name="imgIcono" class="form-control" [(ngModel)]="imgIcono" required>
   <label for="nombre">Titulo de la habilidad</label>

@@ -33,12 +33,16 @@ public class ProyectosController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public ResponseEntity<?> crearProyectos(@RequestBody Proyectos proyectos) {
+        if (proyectos.getNombre() == null)
+            return new ResponseEntity(new Mensaje("Debe colocar el título"), HttpStatus.BAD_REQUEST);
         iProyectosService.saveProyectos(proyectos);
         return new ResponseEntity(new Mensaje("El Proyectos fue guardado"), HttpStatus.OK);
     }
     
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Proyectos proyectos) {
+        if (proyectos.getNombre() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el título"), HttpStatus.BAD_REQUEST);
         Proyectos proAnt = iProyectosService.findProyectos(id);
         proAnt.setDescripcion(proyectos.getDescripcion());
         proAnt.setGithub(proyectos.getGithub());

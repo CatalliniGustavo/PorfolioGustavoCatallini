@@ -34,12 +34,18 @@ public class HblanController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public ResponseEntity<?> crearHblandas(@RequestBody Hblandas hblandas) {
+       
+        if (hblandas.getNombre() == null)
+            return new ResponseEntity(new Mensaje("Campos vacíos o erroneos"), HttpStatus.BAD_REQUEST);
         iHblandasService.saveHblandas(hblandas);
         return new ResponseEntity(new Mensaje("La Hblandas fue guardada"), HttpStatus.OK);
     }
     
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Hblandas hblandas) {
+        
+        if (hblandas.getNombre() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el título"), HttpStatus.BAD_REQUEST);
         Hblandas hbAnt = iHblandasService.findHblandas(id);
         hbAnt.setProgreso(hblandas.getProgreso());
         hbAnt.setTiempoexpe(hblandas.getTiempoexpe());

@@ -33,12 +33,16 @@ public class HdurasController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public ResponseEntity<?> crearHduras(@RequestBody Hduras hduras) {
+        if (hduras.getNombre() == null)
+            return new ResponseEntity(new Mensaje("Campos vacíos o erroneos"), HttpStatus.BAD_REQUEST);
         iHdurasService.saveHduras(hduras);
         return new ResponseEntity(new Mensaje("La Hduras fue guardada"), HttpStatus.OK);
     }
     
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Hduras hduras) {
+        if (hduras.getNombre() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el título"), HttpStatus.BAD_REQUEST);
         Hduras hdAnt = iHdurasService.findHduras(id);
         hdAnt.setProgreso(hduras.getProgreso());
         hdAnt.setTiempoexpe(hduras.getTiempoexpe());

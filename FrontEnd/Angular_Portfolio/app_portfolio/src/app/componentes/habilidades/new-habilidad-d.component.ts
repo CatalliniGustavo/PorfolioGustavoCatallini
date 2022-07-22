@@ -16,6 +16,7 @@ export class NewHabilidadDComponent implements OnInit {
   nombre: string;
   progreso: number;
   tiempoexpe: number;
+  errMsj!: string;
 
   constructor(
     private hdurasService: HdurasService,
@@ -38,8 +39,10 @@ export class NewHabilidadDComponent implements OnInit {
       this.closeModal()
       this.modalService.dismissAll();
     }, err => {
-      alert("Falla en el intento de cargar la nueva Habilidad Dura");
-      this.modalService.dismissAll();
+
+      this.errMsj = err.error.mensaje;
+      // alert("Falla en el intento de cargar la nueva Habilidad Dura");
+      // this.modalService.dismissAll();
     }
     );
 

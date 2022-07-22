@@ -66,11 +66,23 @@ public class UserController {
     @PutMapping("/user/update")
     public ResponseEntity<?> editUsario(@RequestBody User user) {
         long id = 1;
-        
+        if (user.getNombre() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el Nombre"), HttpStatus.BAD_REQUEST);
+        if (user.getApellido() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el Apellido"), HttpStatus.BAD_REQUEST);
+        if (user.getEmail() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el Email"), HttpStatus.BAD_REQUEST);
+        if (user.getTitulo() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar el Título"), HttpStatus.BAD_REQUEST);
+        if (user.getAcerca() == "")
+            return new ResponseEntity(new Mensaje("Debe colocar un texto en Acerca de:"), HttpStatus.BAD_REQUEST);
         User userAnt = iusuarioService.findUser(id);
         userAnt.setNombre(user.getNombre());
+        userAnt.setApellido(user.getApellido());
         userAnt.setEmail(user.getEmail());
+        userAnt.setTitulo(user.getTitulo());
         userAnt.setImg(user.getImg());
+        userAnt.setBanner(user.getBanner());
         userAnt.setAcerca(user.getAcerca());
         iusuarioService.saveUser(user);
         return new ResponseEntity(new Mensaje("El Perfil fue actualizado"), HttpStatus.OK);

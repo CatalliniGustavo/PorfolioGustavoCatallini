@@ -1,6 +1,7 @@
 <form #f="ngForm" *ngIf="hduras" (ngSubmit)="onUpdate()" novalidate>
     <h1 class="h3 mb-3 fw-normal" style="color: red">Editar Habilidad</h1>
-  
+    <p style="color: red">{{errMsj}}</p>
+
     <label for="nombre">Imagen de la Habilidad</label>
     <input type="text" id="imgIcono" name="imgIcono" class="form-control" [(ngModel)]="hduras.imgIcono" required>
   

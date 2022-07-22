@@ -13,7 +13,8 @@ export class EditProyectoComponent implements OnInit {
 
   proyecto: Proyectos = null;
   id: number;
-
+  errMsj!: string;
+  
   constructor(
     private proyectosService: ProyectosService,
     private modalss: SwitchService,
@@ -39,8 +40,9 @@ export class EditProyectoComponent implements OnInit {
         this.closeModal()
         this.modalService.dismissAll();
       }, err => {
-        alert("Error al modificar la proyectos");
-        this.modalService.dismissAll();
+        this.errMsj = err.error.mensaje;
+        // alert("Error al modificar la proyectos");
+        // this.modalService.dismissAll();
       }
     )
   }

@@ -40,7 +40,7 @@ export class EditarPerfilComponent implements OnInit {
         this.modalService.dismissAll();
       }, err => {
         this.errMsj = err.error.mensaje;
-        alert("Error al modificar el Perfil");
+        // alert("Error al modificar el Perfil");
       }
     )
   }
