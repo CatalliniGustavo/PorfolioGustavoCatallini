@@ -10,7 +10,7 @@ import { UserService } from 'src/app/servicios/user/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  user: user = new user("", "", "", "", "");
+  user: user = new user("", "", "", "", "", "", "");
   login: boolean = false;
 
   constructor(

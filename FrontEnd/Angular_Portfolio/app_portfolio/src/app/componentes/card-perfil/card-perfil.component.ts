@@ -12,10 +12,11 @@ import { UserService } from 'src/app/servicios/user/user.service';
 })
 export class CardPerfilComponent implements OnInit {
 
-  user: user = new user("", "", "", "", "");
+  user: user = new user("", "", "", "", "", "", "");
   admin: boolean = false;
   isLogin: boolean = false;
   modalSwitch: boolean;
+  banner: String = "../../../assets/img/Banner.jpg"
   
   constructor(
     public userService: UserService,
@@ -31,7 +32,15 @@ export class CardPerfilComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.isLogin = true;
     }
-    this.userService.getUser().subscribe(data => { this.user = data })
+    this.userService.getUser().subscribe(data => { 
+      this.user = data 
+      console.log(this.user.banner);
+      if (this.user.banner == "") {
+        console.log("Entro al if");
+        this.user.banner = this.banner;
+        this.cargarPerfil()
+      }
+    });
 
     this.cargarPerfil();
     this.modalss.$modal.subscribe((valor) => {
@@ -43,7 +52,13 @@ export class CardPerfilComponent implements OnInit {
 
 
   cargarPerfil(): void {
-    this.userService.getUser().subscribe(data => { this.user = data })
+    this.userService.getUser().subscribe(data => { 
+      this.user = data 
+      if (this.user.banner == "") {
+        console.log("Entro al if");
+        this.user.banner = this.banner;
+      }
+    })
   }
 
   open(content: any) {

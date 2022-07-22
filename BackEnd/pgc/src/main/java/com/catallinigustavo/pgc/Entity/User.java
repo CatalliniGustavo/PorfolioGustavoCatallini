@@ -29,9 +29,13 @@ public class User {
     @NotNull
     @Size(min = 1, max = 50, message = "el email no cumple con la longitd")
     private String email;
+    private String titulo;
     private String img;
+    private String banner;
     @Size(min = 1, max = 500, message = "el pass no cumple con la longitd")
     private String acerca;
+    
+    
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JoinColumn(name = "user_id")
 //    private List<Experiencia> experiencia;

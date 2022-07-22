@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.catallinigustavo.pgc.Interface.IUserService;
+import com.catallinigustavo.pgc.Security.Controller.Mensaje;
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
@@ -60,20 +63,17 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/usuario/editar/{id}")
-    public User editUsario(
-            @PathVariable Long id,
-            @RequestParam("nombre") String nuevoNombre,
-            @RequestParam("email") String nuevoEmail,
-            @RequestParam("img") String nuevoImg,
-            @RequestParam("acerca") String nuevoAcerca) {
-        User usuario = iusuarioService.findUser(id);
-        usuario.setNombre(nuevoNombre);
-        usuario.setEmail(nuevoEmail);
-        usuario.setImg(nuevoImg);
-        usuario.setAcerca(nuevoAcerca);
-        iusuarioService.saveUser(usuario);
-        return usuario;
+    @PutMapping("/user/update")
+    public ResponseEntity<?> editUsario(@RequestBody User user) {
+        long id = 1;
+        
+        User userAnt = iusuarioService.findUser(id);
+        userAnt.setNombre(user.getNombre());
+        userAnt.setEmail(user.getEmail());
+        userAnt.setImg(user.getImg());
+        userAnt.setAcerca(user.getAcerca());
+        iusuarioService.saveUser(user);
+        return new ResponseEntity(new Mensaje("El Perfil fue actualizado"), HttpStatus.OK);
     }
 
     @GetMapping("user/traer/perfil")
