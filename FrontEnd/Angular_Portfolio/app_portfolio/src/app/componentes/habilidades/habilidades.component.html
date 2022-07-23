@@ -16,10 +16,18 @@
                         <h6>Experiencia: {{habilidadesB.tiempoexpe}} año</h6>
                     </div>
                     <div id="progre">
-                        <circle-progress id="circulo" [percent]="habilidadesB.progreso" [radius]="80"
-                            [outerStrokeWidth]="12" [innerStrokeWidth]="5" [outerStrokeColor]="'red'"
-                            [innerStrokeColor]="'grey'" [animationDuration]="1000" [imageWidth]="70" [imageHeight]="70"
-                            [showImage]="true" [imageSrc]="habilidadesB.imgIcono">
+                        <circle-progress id="circulo"
+                        [percent]="habilidadesB.progreso" 
+                        [radius]="80"
+                        [outerStrokeWidth]="12" 
+                        [innerStrokeWidth]="5" 
+                        [outerStrokeColor]="'red'"
+                        [innerStrokeColor]="'grey'" 
+                        [animationDuration]="1000" 
+                        [imageWidth]="70" 
+                        [imageHeight]="70"
+                        [showImage]="true" 
+                        [imageSrc]="habilidadesB.imgIcono">
                         </circle-progress>
                         <a *ngIf="admin" (click)="openEditHb(edithb, habilidadesB.id)"  id="beditar"><i class="fa fa-pen"></i></a>
                         <ng-template #edithb>

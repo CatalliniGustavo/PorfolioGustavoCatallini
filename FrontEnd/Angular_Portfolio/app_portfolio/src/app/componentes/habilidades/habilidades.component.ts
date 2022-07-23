@@ -102,4 +102,5 @@ export class HabilidadesComponent implements OnInit {
     this.modalss.valor = val;
     this.modalService.open(content);
   }
+  
 }
