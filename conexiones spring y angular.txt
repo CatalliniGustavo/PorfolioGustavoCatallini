@@ -1,0 +1,13 @@
+MYSQL_ADDON_HOST=bsdg9bblqm6rrysagalv-mysql.services.clever-cloud.com
+MYSQL_ADDON_DB=bsdg9bblqm6rrysagalv
+MYSQL_ADDON_USER=uzfsnc9ek7zpbyje
+MYSQL_ADDON_PORT=3306
+MYSQL_ADDON_PASSWORD=YtL5t4UneXYbkFmjx1K9
+MYSQL_ADDON_URI=mysql://uzfsnc9ek7zpbyje:YtL5t4UneXYbkFmjx1K9@bsdg9bblqm6rrysagalv-mysql.services.clever-cloud.com:3306/bsdg9bblqm6rrysagalv
+
+
+Heroku:
+Creating app... done, ⬢ ancient-ocean-71608
+https://ancient-ocean-71608.herokuapp.com/ | https://git.heroku.com/ancient-ocean-71608.git
+
+contraseña heroku: temp3512@tasa
