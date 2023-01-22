@@ -3,3 +3,5 @@ FrontEnd/Angular_Portfolio/app_portfolio/.firebase/hosting.ZGlzdFxhcHBfcG9yZm9sa
 *.cache
 FrontEnd/Angular_Portfolio/app_portfolio/.firebase/hosting.ZGlzdFxhcHBfcG9yZm9saW8.cache
 *.cache
+BackEnd/pgc/target/classes/.netbeans_automatic_build
+BackEnd/pgc/target/test-classes/.netbeans_automatic_build
